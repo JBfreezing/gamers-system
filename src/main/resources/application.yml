@@ -1,0 +1,22 @@
+spring:
+  application.name: gamers-system
+  datasource:
+    #连接数据库配置
+
+    url: jdbc:mysql://localhost:3306/gamers_system
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+
+
+
+mybatis:
+#mapper配置文件
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.itbin.gamerssystem.entity
+  configuration:
+    #开启驼峰命名
+    map-underscore-to-camel-case: true
+
