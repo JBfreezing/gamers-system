@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.itbin.gamerssystem.mapper.GameConsoleMapper">
+
+    <select id="getConsole" resultType="com.itbin.gamerssystem.entity.GameConsole">
+        select * from gamers_console
+        <where>
+            <if test="brand!=null and brand!='' ">
+                and brand = #{brand}
+            </if>
+            <if test="status!=null and status!=''">
+                and status = #{status}
+            </if>
+        </where>
+        order by brand
+        <choose>
+            <when test="direction == 'desc' or direction == 'DESC'">DESC</when>
+            <otherwise>ASC</otherwise>
+        </choose>
+    </select>
+
+
+
+</mapper>
